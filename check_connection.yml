@@ -7,8 +7,8 @@
   - name: Check import netapp-lib
     na_ontap_debug:
       hostname: "{{ netapp_hostname }}"
-      username: “{{ ansible_env.ANSIBLE_NET_USERNAME }}”
-      password: “{{ ansible_env.ANSIBLE_NET_PASSWORD }}”
+      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
 #      username: "{{ netapp_username }}"
 #      password: "{{ netapp_password }}"
       https: true
