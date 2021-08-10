@@ -9,7 +9,16 @@
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
-#      username: "{{ netapp_username }}"
-#      password: "{{ netapp_password }}"
       https: true
       validate_certs: false
+
+  - name: run ONTAP gather facts for all subsets
+    netapp.ontap.na_ontap_rest_info:
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
+      https: true
+      validate_certs: false
+      use_rest: Always
+      gather_subset:
+      - all
