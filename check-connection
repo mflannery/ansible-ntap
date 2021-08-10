@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+  tasks:
+  - name: Check import netapp-lib
+    na_ontap_debug:
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
