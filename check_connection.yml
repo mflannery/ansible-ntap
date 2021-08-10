@@ -21,4 +21,5 @@
       validate_certs: false
       use_rest: Always
       gather_subset:
-      - all
+      - aggregate_info
+      - volume_info
