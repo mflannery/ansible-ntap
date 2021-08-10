@@ -2,10 +2,7 @@
 - hosts: localhost
   collections:
     - netapp.ontap
-#  vars:
-#    netapp_hostname: 172.16.250.10
-#    netapp_username: admin
-#    netapp_password: redhat12
+
   tasks:
   - name: Check import netapp-lib
     na_ontap_debug:
