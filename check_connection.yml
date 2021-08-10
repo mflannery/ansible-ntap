@@ -8,7 +8,6 @@
     na_ontap_debug:
       hostname: "{{ netapp_hostname }}"
       username: “{{ ansible_env.ANSIBLE_NET_USERNAME }}”
-      state: present
       password: “{{ ansible_env.ANSIBLE_NET_PASSWORD }}”
 #      username: "{{ netapp_username }}"
 #      password: "{{ netapp_password }}"
