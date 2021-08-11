@@ -15,7 +15,7 @@
       gather_subset: "aggregate_info"
       desired_attributes:
         aggr-attributes:
-          aggregate_name:
+          aggregate-name:
     register: ontap_info
   - name: show info gathered
     debug:
