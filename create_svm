@@ -4,8 +4,13 @@
     - netapp.ontap
 
   tasks:
-  - name: Check import netapp-lib
-    na_ontap_debug:
+  - name: Create SVM
+    na_ontap_svm:
+      state: present
+      name: ansibleVServer
+      root_volume: vol1
+      root_volume_aggregate: aggr1
+      root_volume_security_style: mixed
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
