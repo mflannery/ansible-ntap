@@ -13,12 +13,11 @@
       validate_certs: false
       use_rest: Always
       fields:
-#        - 'uuid'
         - 'name'
-#        - 'node'
       gather_subset:
       - aggregate_info
     register: device_info
   - name: show info gathered
     debug:
-      msg: "{{ device_info| json_query('\"ontap_info.storage/aggregates\"') }}"
+#      msg: "{{ device_info| json_query('\"ontap_info.storage/aggregates\"') }}"
+      msg: "{{ device_info }}"
