@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.ontap
+
+  tasks:
+  - name: run ONTAP gather facts for all subsets
+    netapp.ontap.na_ontap_info:
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
+      https: true
+      validate_certs: false
+      use_rest: always
+      gather_subset: "aggregate_info"
+    register: ontap_info
+  - name: show info gathered
+    debug:
+      msg: "{{ ontap_info.ontap_info }}"
