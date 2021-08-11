@@ -14,8 +14,8 @@
       use_rest: Always
       gather_subset:
       - aggregate_info
-      - volume_info
+#      - volume_info
     register: device_info
   - name: show info gathered
     debug:
-      msg: "aggregates: {{ device_info.storage/aggregates.name }}"
+      msg: "aggregates: {{ device_info[aggregate-info.name] }}"
