@@ -3,14 +3,6 @@
   collections:
     - netapp.ontap
 
-  vars:
-    hostname: 172.16.250.10
-    username: admin
-    password: redhat12
-    vserver: svm0
-    aggr: aggr1
-    vol_name: ansibleVol
-
   tasks:
     - name: Volume Delete
       na_ontap_volume:
@@ -18,10 +10,9 @@
         name: "{{ vol_name }}"
         aggregate_name: "{{ aggr }}"
         vserver: "{{ vserver }}"
-        hostname: "{{ hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        https: true
+        hostname: "{{ netapp_hostname }}"
+        username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+        password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"        https: true
         validate_certs: false
 
     - name: Delete SVM
@@ -30,9 +21,9 @@
         name: svm0
         root_volume: svm0_root
         root_volume_aggregate: aggr1
-        hostname: "{{ hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        hostname: "{{ netapp_hostname }}"
+        username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+        password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
 
     - name: Delete Aggregate
       na_ontap_aggregate:
@@ -40,8 +31,8 @@
         service_state: offline
         unmount_volumes: yes
         name: "{{ aggr }}"
-        hostname: "{{ hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        hostname: "{{ netapp_hostname }}"
+        username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+        password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
         https: true
         validate_certs: false

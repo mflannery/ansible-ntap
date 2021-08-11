@@ -2,27 +2,21 @@
 - hosts: localhost
   collections:
     - netapp.ontap
-  name: Volume Action
-  vars:
-    hostname: 172.16.250.10
-    username: admin
-    password: redhat12
-    vserver: svm0
-    aggr: aggr1
-    vol_name: ansibleVol
+#  name: Volume Action
+
   tasks:
   - name: Volume Create
     na_ontap_volume:
       state: present
       name: "{{ vol_name }}"
-      vserver: "{{ vserver }}"
-      aggregate_name: "{{ aggr }}"
+      vserver: "{{ vserver_name }}"
+      aggregate_name: "{{ aggr_name }}"
       size: 1
       size_unit: gb
       policy: default
       junction_path: "/{{ vol_name }}"
-      hostname: "{{ hostname }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
       https: true
       validate_certs: false
