@@ -9,7 +9,7 @@
     na_ontap_volume:
       state: present
       name: "{{ vol_name }}"
-      vserver: "{{ vserver_name }}"
+#      vserver: "{{ vserver_name }}"
       aggregate_name: "{{ aggr_name }}"
       size: 1
       size_unit: gb

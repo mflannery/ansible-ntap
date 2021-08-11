@@ -10,9 +10,9 @@
       service_state: online
       name: "{{ aggr_name }}"
       disk_count: 5
-      wait_for_online: True
-      time_out: 300
-      snaplock_type: non_snaplock
+#      wait_for_online: True
+#      time_out: 300
+#      snaplock_type: non_snaplock
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"

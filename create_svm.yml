@@ -14,5 +14,5 @@
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
-      https: true
+      https: yes
       validate_certs: false
