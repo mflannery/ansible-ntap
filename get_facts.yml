@@ -18,5 +18,5 @@
     register: device_info
   - name: show info gathered
     debug:
-      msg: "aggregates: {{ device_info.ontap_info  }}"
+      msg: "aggregates: {{ device_info.ontap_info[name] }}"
 
