@@ -18,4 +18,4 @@
     register: device_info
   - name: show info gathered
     debug:
-      msg: "aggregates: {{ device_info:aggregates: {'ontap_info': {'storage/aggregates': {'records': ['name']}}} }}"
+      msg: "aggregates: {{ device_info  }}"
