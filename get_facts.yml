@@ -14,6 +14,7 @@
       use_rest: Always
       fields:
         - 'name'
+        - "!uuid"
       gather_subset:
       - aggregate_info
     register: device_info
