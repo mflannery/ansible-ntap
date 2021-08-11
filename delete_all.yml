@@ -4,33 +4,36 @@
     - netapp.ontap
 
   tasks:
-    - name: Volume Delete
-      na_ontap_volume:
-        state: absent
-        name: "{{ vol_name }}"
-        aggregate_name: "{{ aggr }}"
-        vserver: "{{ vserver }}"
-        hostname: "{{ netapp_hostname }}"
-        username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
-        password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"        https: true
-        validate_certs: false
+#    - name: Volume Delete
+#      na_ontap_volume:
+#        state: absent
+#        name: "{{ vol_name }}"
+#        aggregate_name: "{{ aggr_name }}"
+#        vserver: "{{ vserver_name }}"
+#        hostname: "{{ netapp_hostname }}"
+#        username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+#        password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"        
+#        https: true
+#        validate_certs: false
 
     - name: Delete SVM
       na_ontap_svm:
         state: absent
-        name: svm0
-        root_volume: svm0_root
-        root_volume_aggregate: aggr1
+        name: "{{ vserver_name }}"
+        root_volume: "{{ vol_name }}"
+        root_volume_aggregate: "{{ aggr_name }}"
         hostname: "{{ netapp_hostname }}"
         username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
         password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
+        https: true
+        validate_certs: false
 
     - name: Delete Aggregate
       na_ontap_aggregate:
         state: absent
         service_state: offline
         unmount_volumes: yes
-        name: "{{ aggr }}"
+        name: "{{ aggr_name }}"
         hostname: "{{ netapp_hostname }}"
         username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
         password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
