@@ -7,9 +7,9 @@
   - name: Create SVM
     na_ontap_svm:
       state: present
-      name: ansibleVServer
-      root_volume: vol1
-      root_volume_aggregate: aggr1
+      name: "{{ vserver_name }}"
+      root_volume: "{{ vol_name }}"
+      root_volume_aggregate: "{{ aggr_name }}"
       root_volume_security_style: mixed
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
