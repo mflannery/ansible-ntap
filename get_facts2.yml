@@ -13,6 +13,8 @@
       validate_certs: false
       use_rest: always
       gather_subset: "aggregate_info"
+      desired_attributes:
+        aggr-attributes:
     register: ontap_info
   - name: show info gathered
     debug:
