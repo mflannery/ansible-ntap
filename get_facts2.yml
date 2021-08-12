@@ -19,4 +19,4 @@
     register: ontap_info
   - name: show info gathered
     debug:
-      msg: "{{ ontap_info.ontap_info }}"
+      msg: "{{ ontap_info.ontap_info.info }}"
