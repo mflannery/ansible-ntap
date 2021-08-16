@@ -5,8 +5,9 @@
 
   tasks:
   - name: run ONTAP gather facts for all subsets
-    netapp.ontap.na_ontap_rest_info:
+    na_ontap_rest_info:
       hostname: "{{ netapp_hostname }}"
+#      hostname: "c1n1"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
       https: true
@@ -20,5 +21,5 @@
     register: device_info
   - name: show info gathered
     debug:
-      msg: "{{ device_info | json_query('\"ontap_info.storage/aggregates\"') }}"
-#      msg: "{{ device_info }}"
+#      msg: "{{ device_info | json_query('\"ontap_info.storage/aggregates\"') }}"
+      msg: "{{ device_info }}"
