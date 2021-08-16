@@ -3,6 +3,9 @@
   collections:
     - netapp.ontap
 
+  vars:
+    netapp_hostname: "c1n1"
+
   tasks:
   - name: run ONTAP gather facts for all subsets
     na_ontap_info:
