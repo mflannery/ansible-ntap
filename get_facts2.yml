@@ -3,15 +3,15 @@
   collections:
     - netapp.ontap
 
-  vars:
-    netapp_hostname: "c1n1"
-
   tasks:
   - name: run ONTAP gather facts for all subsets
     na_ontap_info:
-      hostname: "{{ netapp_hostname }}"
-      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
-      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
+#      hostname: "{{ netapp_hostname }}"
+#      username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
+#      password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
+      hostname: "c1n1"
+      username: "admin"
+      password: "redhat12"
       https: true
       validate_certs: false
       use_rest: always
