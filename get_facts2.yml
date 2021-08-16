@@ -5,7 +5,7 @@
 
   tasks:
   - name: run ONTAP gather facts for all subsets
-    netapp.ontap.na_ontap_info:
+    na_ontap_info:
       hostname: "{{ netapp_hostname }}"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
       password: "{{ ansible_env.ANSIBLE_NET_PASSWORD }}"
