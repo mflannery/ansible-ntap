@@ -13,9 +13,9 @@
       https: true
       validate_certs: false
       use_rest: Always
-      fields:
-        - 'name'
-        - "!uuid"
+#      fields:
+#        - 'name'
+#        - "!uuid"
       gather_subset:
       - aggregate_info
     register: device_info
