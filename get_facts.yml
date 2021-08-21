@@ -13,15 +13,12 @@
       https: true
       validate_certs: false
       use_rest: Always
-#      fields:
-#        - 'name'
-#        - "!uuid"
       gather_subset:
       - aggregate_info
-    register: device_info
+    register: ontap_info
   - name: show info gathered
     debug:
-      msg: '{{ aggregate_report|from_yaml }}'
+        msg: '{{ aggregate_report|from_yaml }}'
       vars:
         aggregate_report: |-
           {% for record in ontap_info["storage/aggregates"].records %}
