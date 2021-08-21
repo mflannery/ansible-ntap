@@ -5,7 +5,7 @@
 
   tasks:
   - name: run ONTAP gather facts for all subsets
-    na_ontap_gather_facts:
+    na_ontap_info:
 #    na_ontap_rest_info:
       hostname: "{{ netapp_hostname }}"
 #      hostname: "c1n1"
@@ -16,9 +16,9 @@
       use_rest: Always
 #      gather_subset:
 #      - aggregate_info
-#    register: device_info
+    register: ontap_info
   - debug:
-      var: ontap_facts
+      msg: "{{ ontap_info.ontap_info }}"
 
 #  - name: show info gathered
 #    debug:
