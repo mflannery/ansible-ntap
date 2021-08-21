@@ -18,9 +18,9 @@
     register: ontap_info
   - name: show info gathered
     debug:
-        msg: '{{ aggregate_report|from_yaml }}'
-      vars:
-        aggregate_report: |-
-          {% for record in ontap_info["storage/aggregates"].records %}
-          - "Aggregate Name: {{ record.name }}"
-          {% endfor %}
+      msg: '{{ aggregate_report|from_yaml }}'
+    vars:
+      aggregate_report: |-
+        {% for record in ontap_info["storage/aggregates"].records %}
+        - "Aggregate Name: {{ record.name }}"
+        {% endfor %}
