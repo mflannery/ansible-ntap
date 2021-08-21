@@ -18,10 +18,13 @@
     register: device_info
   - name: show info gathered
     debug:
-#      msg: '{{ device_info }}'
+      msg: '{{ device_info }}'
+  
+  - name: storage aggregate show
+    debug:
       msg: '{{ aggregate_report|from_yaml }}'
     vars:
       aggregate_report: |-
-        {% for record in device_info.ontap_info["storage/aggregates"].records %}
-        - "Aggregate Name: {{ record.name }}"
+        {% for record in ontap_info["storage/aggregates"].records %}
+        - "{{ record.name }} {{ record.size }}"
         {% endfor %}
