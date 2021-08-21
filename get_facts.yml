@@ -5,7 +5,8 @@
 
   tasks:
   - name: run ONTAP gather facts for all subsets
-    na_ontap_rest_info:
+    na_ontap_gather_facts:
+#    na_ontap_rest_info:
       hostname: "{{ netapp_hostname }}"
 #      hostname: "c1n1"
       username: "{{ ansible_env.ANSIBLE_NET_USERNAME }}"
@@ -15,16 +16,19 @@
       use_rest: Always
 #      gather_subset:
 #      - aggregate_info
-    register: device_info
-  - name: show info gathered
-    debug:
-      msg: '{{ device_info }}'
+#    register: device_info
+  - debug:
+      var: ontap_facts
+
+#  - name: show info gathered
+#    debug:
+#      msg: '{{ device_info }}'
   
-  - name: storage aggregate show
-    debug:
-      msg: '{{ aggregate_report|from_yaml }}'
-    vars:
-      aggregate_report: |-
-        {% for record in ontap_info["storage/aggregates"].records %}
-        - "{{ record.name }} {{ record.size }}"
-        {% endfor %}
+#  - name: storage aggregate show
+#    debug:
+#      msg: '{{ aggregate_report|from_yaml }}'
+#    vars:
+#      aggregate_report: |-
+#        {% for record in ontap_info["storage/aggregates"].records %}
+#        - "{{ record.name }} {{ record.size }}"
+#        {% endfor %}
