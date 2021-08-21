@@ -14,8 +14,8 @@
       https: true
       validate_certs: false
       use_rest: Always
-#      gather_subset:
-#      - aggregate_info
+      gather_subset:
+      - aggregate_info
     register: ontap_info
   - debug:
       msg: "{{ ontap_info.ontap_info }}"
