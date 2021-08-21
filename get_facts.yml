@@ -13,8 +13,8 @@
       https: true
       validate_certs: false
       use_rest: Always
-      gather_subset:
-      - aggregate_info
+#      gather_subset:
+#      - aggregate_info
     register: device_info
   - name: show info gathered
     debug:
