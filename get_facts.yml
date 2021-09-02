@@ -20,10 +20,6 @@
   - debug:
       msg: "{{ ontap_info.ontap_info }}"
 
-#  - name: show info gathered
-#    debug:
-#      msg: '{{ device_info }}'
-  
 #  - name: storage aggregate show
 #    debug:
 #      msg: '{{ aggregate_report|from_yaml }}'
